@@ -27,6 +27,10 @@ Route::get('/schedules/calendar', [ScheduleController::class, 'calendar']); // �
 Route::get('/events', [ScheduleController::class, 'events']); // カレンダー用API
 Route::get('/schedules/create', [ScheduleController::class, 'create'])->name('schedules.create');
 Route::post('/schedules', [ScheduleController::class, 'store'])->name('schedules.store');
+Route::get('/schedules/{id}', [ScheduleController::class, 'show'])->name('schedules.show');
+Route::get('/schedules/{id}/edit', [ScheduleController::class, 'edit'])->name('schedules.edit');
+Route::put('/schedules/{id}', [ScheduleController::class, 'update'])->name('schedules.update');
+Route::delete('/schedules/{id}', [ScheduleController::class, 'destroy'])->name('schedules.destroy');
 
 
 // 校内マップ（静的ページ）

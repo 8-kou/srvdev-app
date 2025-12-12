@@ -61,4 +61,38 @@ class ScheduleController extends Controller
         return redirect()->route('schedules.index');
     }
 
+    public function show($id)
+    {
+        $schedule = Schedule::findOrFail($id);
+        return view('schedules.show', compact('schedule'));
+    }
+
+    public function edit($id)
+    {
+        $schedule = Schedule::findOrFail($id);
+        return view('schedules.edit', compact('schedule'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required',
+            'event_date' => 'required|date',
+            'description' => 'nullable',
+        ]);
+
+        $schedule = Schedule::findOrFail($id);
+        $schedule->update($request->only('title', 'event_date', 'description'));
+
+        return redirect()->route('schedules.show', $id);
+    }
+
+    public function destroy($id)
+    {
+        $schedule = Schedule::findOrFail($id);
+        $schedule->delete();
+
+        return redirect()->route('schedules.index');
+    }
+
 }
