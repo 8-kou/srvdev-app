@@ -24,3 +24,29 @@ Route::get('/schedules', [ScheduleController::class, 'index'])->name('schedules.
 
 // 校内マップ（静的ページ）
 Route::get('/map', [PageController::class, 'map'])->name('map');
+
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+
+// 管理者用ログイン・ログアウトルート
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    // 認証されていないユーザー向け
+    Route::middleware('guest')->group(function () {
+        Route::get('login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'showLoginForm'])->name('login');
+        Route::post('login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'login']);
+    });
+
+    // 認証済みのユーザー向け
+    Route::middleware('auth')->group(function () {
+        Route::post('logout', [App\Http\Controllers\Admin\Auth\LoginController::class, 'logout'])->name('logout');
+
+        // 管理画面トップページ
+        Route::get('/', function () {
+            return view('admin.dashboard'); // ステップ3で作成
+        })->name('dashboard');
+    });
+});
