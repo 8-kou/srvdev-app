@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Teacher;
+use Illuminate\View\View;
 
 class TeacherController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        // 表示順(sort_order)に並べて取得
-        $teachers = Teacher::orderBy('sort_order', 'asc')->get();
+        // データベースから先生全員のデータを取得
+        $teachers = Teacher::all();
+
+        // 画面（resources/views/teachers/index.blade.php）にデータを渡して表示
         return view('teachers.index', compact('teachers'));
     }
 }
