@@ -15,6 +15,8 @@ Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
+Route::post('/posts/{id}/reply', [PostController::class, 'storeReply'])->name('posts.storeReply');
+Route::post('/posts/{id}/like', [PostController::class, 'toggleLike'])->name('posts.toggleLike');
 
 // 先生紹介
 Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers.index');

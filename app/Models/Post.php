@@ -15,7 +15,22 @@ class Post extends Model
         'content',
         'category',
         'is_published',
+        'parent_id',
     ];
 
-    // ... その他の設定
+    // リレーション
+    public function replies()
+    {
+        return $this->hasMany(Post::class, 'parent_id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Post::class, 'parent_id');
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }
