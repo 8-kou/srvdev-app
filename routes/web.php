@@ -23,6 +23,11 @@ Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers.ind
 
 // スケジュール
 Route::get('/schedules', [ScheduleController::class, 'index'])->name('schedules.index');
+Route::get('/schedules/calendar', [ScheduleController::class, 'calendar']); // カレンダー表示
+Route::get('/events', [ScheduleController::class, 'events']); // カレンダー用API
+Route::get('/schedules/create', [ScheduleController::class, 'create'])->name('schedules.create');
+Route::post('/schedules', [ScheduleController::class, 'store'])->name('schedules.store');
+
 
 // 校内マップ（静的ページ）
 Route::get('/map', [PageController::class, 'map'])->name('map');

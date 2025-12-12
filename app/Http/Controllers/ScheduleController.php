@@ -15,4 +15,50 @@ class ScheduleController extends Controller
                         ->get();
         return view('schedules.index', compact('schedules'));
     }
+
+    // カレンダー表示ページ
+    public function calendar()
+    {
+        return view('schedules.calendar');
+    }
+
+    // FullCalendar データAPI
+    public function events()
+    {
+        $events = Schedule::where('event_date', '>=', now())
+                          ->orderBy('event_date', 'asc')
+                          ->get()
+                          ->map(function ($schedule) {
+                              return [
+                                  'id'    => $schedule->id,
+                                  'title' => $schedule->title,
+                                  'start' => $schedule->event_date,
+                              ];
+                          });
+
+        return response()->json($events);
+    }
+
+    public function create()
+    {
+        return view('schedules.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'event_date' => 'required|date',
+            'description' => 'nullable',
+        ]);
+
+        Schedule::create([
+            'title' => $request->title,
+            'event_date' => $request->event_date,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('schedules.index');
+    }
+
 }
