@@ -31,6 +31,8 @@
         {{ $slot }}
     </main>
 
+    @yield('scripts')
+
     <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm mt-auto">
         &copy; {{ date('Y') }} School Portal Project. All rights reserved.
     </footer>
