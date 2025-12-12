@@ -26,4 +26,16 @@
             </div>
         @endif
     </div>
+
+        {{-- ② カレンダー（カードから外に出す） --}}
+        <div class="mt-10 max-w-4xl mx-auto">
+            <div id="calendar"></div>
+        </div>
+
+        @section('scripts')
+            <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+            <script src="/js/calendar.js"></script>
+            
+        @endsection
+
 </x-layout>
