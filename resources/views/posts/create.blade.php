@@ -4,7 +4,7 @@
 
         <form action="{{ route('posts.store') }}" method="POST">
             @csrf
-            
+
             <div class="mb-5">
                 <label class="block text-gray-700 text-sm font-bold mb-2">ニックネーム <span class="text-red-500">*</span></label>
                 <input type="text" name="author_name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required placeholder="例: 情報太郎">

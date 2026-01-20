@@ -21,7 +21,7 @@
                     <a href="{{ route('posts.index') }}" class="hover:text-blue-200 transition font-medium">掲示板</a>
                     <a href="{{ route('teachers.index') }}" class="hover:text-blue-200 transition font-medium">先生紹介</a>
                     <a href="{{ route('schedules.index') }}" class="hover:text-blue-200 transition font-medium">スケジュール</a>
-                    <a href="{{ route('map') }}" class="hover:text-blue-200 transition font-medium">マップ</a>
+                    <a href="{{ route('map') }}" class="hover:text-blue-200 transition font-medium">校内地図</a>
                 </nav>
             </div>
         </div>

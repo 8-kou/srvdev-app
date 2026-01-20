@@ -23,8 +23,8 @@
             <p class="text-sm text-gray-500">年間の行事予定や試験日程。</p>
         </a>
         <a href="{{ route('map') }}" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition transform hover:-translate-y-1 border-t-4 border-red-500 group">
-            <h3 class="text-xl font-bold text-gray-800 group-hover:text-red-600 mb-2">🗺 校内マップ</h3>
-            <p class="text-sm text-gray-500">教室や施設の位置を確認。</p>
+            <h3 class="text-xl font-bold text-gray-800 group-hover:text-red-600 mb-2">🗺 校内地図</h3>
+            <p class="text-sm text-gray-500">教室・施設の位置を確認。</p>
         </a>
     </div>
 

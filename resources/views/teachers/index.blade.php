@@ -8,7 +8,7 @@
                 <div class="px-6 relative">
                     <div class="w-24 h-24 bg-white rounded-full border-4 border-white absolute -top-12 flex items-center justify-center overflow-hidden shadow-md">
                         @if($teacher->image_path)
-                            <img src="{{ asset('storage/' . $teacher->image_path) }}" class="w-full h-full object-cover">
+                            <img src="{{ asset('storage/' . $teacher->image_path) }}" class="w-full h-full object-cover" alt="{{ $teacher->name }}">
                         @else
                             <span class="text-4xl">👨‍🏫</span>
                         @endif

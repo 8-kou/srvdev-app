@@ -9,7 +9,6 @@
             </div>
         @endif
 
-
         <label class="block mb-4">
             <span class="text-gray-700">タイトル</span>
             <input type="text" name="title" class="mt-1 w-full border p-2 rounded" required>
@@ -26,7 +25,7 @@
         </label>
 
         <div class="flex justify-between items-center mt-6">
-            <a href="{{ route('schedules.index') }}" 
+            <a href="{{ route('schedules.index') }}"
                class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">
                 戻る
             </a>

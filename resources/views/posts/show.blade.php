@@ -22,11 +22,11 @@
                         {{ $post->created_at->format('Y年m月d日 H:i') }}
                     </span>
                 </div>
-                
+
                 <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
-                    {{ $post->title ?? '（タイトルなし）' }}
+                    {{ $post->title ?? 'タイトルなし' }}
                 </h1>
-                
+
                 <div class="mt-4 flex items-center">
                     <div class="bg-gradient-to-br from-blue-400 to-blue-600 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold text-lg shadow">
                         {{ substr($post->author_name, 0, 1) }}
@@ -43,7 +43,7 @@
 {{ $post->content }}
                 </div>
             </div>
-            
+
             <div class="bg-gray-50 px-6 py-4 flex justify-between items-center">
                 <div class="flex items-center space-x-4">
                     <form action="{{ route('posts.toggleLike', $post->id) }}" method="POST" class="inline">
@@ -53,7 +53,7 @@
                             <svg class="h-5 w-5 mr-1 {{ $post->likes->where('ip_address', request()->ip())->count() > 0 ? 'fill-current' : '' }}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                             </svg>
-                            いいね🥰 ({{ $post->likes->count() }})
+                            いいね 🥰 ({{ $post->likes->count() }})
                         </button>
                     </form>
                 </div>
@@ -63,9 +63,8 @@
             </div>
         </div>
 
-        <!-- コメント一覧 -->
         <div class="mt-8">
-            <h2 class="text-xl font-bold text-gray-900 mb-4">コメント💭 ({{ $post->replies->count() }})</h2>
+            <h2 class="text-xl font-bold text-gray-900 mb-4">コメント 💬 ({{ $post->replies->count() }})</h2>
             @if($post->replies->count() > 0)
                 <div class="space-y-4">
                     @foreach($post->replies as $reply)
@@ -100,7 +99,6 @@
             @endif
         </div>
 
-        <!-- コメントフォーム -->
         <div class="mt-8 bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h3 class="text-lg font-bold text-gray-900 mb-4">コメントを投稿する</h3>
             <form action="{{ route('posts.storeReply', $post->id) }}" method="POST">

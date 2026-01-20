@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = '/schedules/create?date=' + info.dateStr;
         },
 
+        eventClick: function(info) {
+            window.location.href = '/schedules/' + info.event.id;
+        },
+
         events: '/events'
     });
 
