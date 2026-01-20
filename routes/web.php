@@ -54,5 +54,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('/', function () {
             return view('admin.dashboard');
         })->name('dashboard');
+
+        Route::resource('teachers', App\Http\Controllers\Admin\TeacherController::class)
+            ->except(['show']);
+
+        Route::resource('posts', App\Http\Controllers\Admin\PostController::class)
+            ->only(['index', 'destroy']);
     });
 });

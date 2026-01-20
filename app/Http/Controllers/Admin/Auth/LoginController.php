@@ -26,15 +26,12 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        // 認証を試行
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // ログイン成功: 管理画面トップへリダイレクト
             return redirect()->intended('/admin');
         }
 
-        // ログイン失敗: 元の画面に戻り、エラーメッセージを付与
         return back()->withErrors([
             'email' => '入力されたメールアドレスまたはパスワードが正しくありません。',
         ])->onlyInput('email');
@@ -50,7 +47,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        // ログアウト成功: ログインフォームへリダイレクト
         return redirect('/admin/login');
     }
 }

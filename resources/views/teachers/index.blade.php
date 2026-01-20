@@ -1,9 +1,11 @@
 <x-layout title="先生紹介">
     <h2 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-green-500 pl-4">先生紹介</h2>
 
+    <div id="teacher-overlay" class="hidden fixed inset-0 bg-black/30 z-20"></div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         @foreach($teachers as $teacher)
-            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition group">
+            <div data-teacher-card class="teacher-card bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition group cursor-pointer">
                 <div class="h-24 bg-gradient-to-r from-green-400 to-teal-500"></div>
                 <div class="px-6 relative">
                     <div class="w-24 h-24 bg-white rounded-full border-4 border-white absolute -top-12 flex items-center justify-center overflow-hidden shadow-md">
@@ -25,4 +27,49 @@
             </div>
         @endforeach
     </div>
+
+    <style>
+        .teacher-card {
+            transition: transform 200ms ease, box-shadow 200ms ease;
+        }
+        .teacher-card.is-active {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 30;
+        }
+    </style>
+
+    <script>
+        (function () {
+            const overlay = document.getElementById('teacher-overlay');
+            const cards = document.querySelectorAll('[data-teacher-card]');
+            let activeCard = null;
+
+            function clearActive() {
+                if (activeCard) {
+                    activeCard.classList.remove('is-active');
+                    activeCard = null;
+                }
+                overlay.classList.add('hidden');
+            }
+
+            cards.forEach((card) => {
+                card.addEventListener('click', () => {
+                    if (activeCard === card) {
+                        clearActive();
+                        return;
+                    }
+                    if (activeCard) {
+                        activeCard.classList.remove('is-active');
+                    }
+                    activeCard = card;
+                    card.classList.add('is-active');
+                    overlay.classList.remove('hidden');
+                });
+            });
+
+            overlay.addEventListener('click', clearActive);
+        })();
+    </script>
 </x-layout>
