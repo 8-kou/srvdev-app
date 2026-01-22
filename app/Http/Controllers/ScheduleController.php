@@ -32,7 +32,7 @@ class ScheduleController extends Controller
                               return [
                                   'id'    => $schedule->id,
                                   'title' => $schedule->title,
-                                  'start' => $schedule->event_date,
+                                  'start' => $schedule->event_date->toDateString(),
                               ];
                           });
 

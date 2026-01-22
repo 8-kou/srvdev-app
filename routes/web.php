@@ -21,17 +21,12 @@ Route::post('/posts/{id}/like', [PostController::class, 'toggleLike'])->name('po
 // Teachers
 Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers.index');
 
-// Schedules
+// Schedules (public view only)
 Route::get('/schedule', [ScheduleController::class, 'index']);
 Route::get('/schedules', [ScheduleController::class, 'index'])->name('schedules.index');
 Route::get('/schedules/calendar', [ScheduleController::class, 'calendar']);
 Route::get('/events', [ScheduleController::class, 'events']);
-Route::get('/schedules/create', [ScheduleController::class, 'create'])->name('schedules.create');
-Route::post('/schedules', [ScheduleController::class, 'store'])->name('schedules.store');
 Route::get('/schedules/{id}', [ScheduleController::class, 'show'])->name('schedules.show');
-Route::get('/schedules/{id}/edit', [ScheduleController::class, 'edit'])->name('schedules.edit');
-Route::put('/schedules/{id}', [ScheduleController::class, 'update'])->name('schedules.update');
-Route::delete('/schedules/{id}', [ScheduleController::class, 'destroy'])->name('schedules.destroy');
 
 // Map
 Route::get('/map', [PageController::class, 'map'])->name('map');
@@ -46,6 +41,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::middleware('guest')->group(function () {
         Route::get('login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'showLoginForm'])->name('login');
         Route::post('login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'login']);
+        Route::get('register', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'showRegisterForm'])->name('register');
+        Route::post('register', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'register']);
     });
 
     Route::middleware('auth')->group(function () {
@@ -60,5 +57,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
         Route::resource('posts', App\Http\Controllers\Admin\PostController::class)
             ->only(['index', 'destroy']);
+
+        Route::resource('schedules', App\Http\Controllers\Admin\ScheduleController::class)
+            ->except(['show']);
     });
 });

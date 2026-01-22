@@ -39,6 +39,12 @@
                     </button>
                 </div>
             </form>
+
+            <div class="mt-6 text-center">
+                <a href="{{ route('admin.register') }}" class="text-sm text-blue-600 hover:text-blue-800 underline">
+                    新規アカウント作成
+                </a>
+            </div>
         </div>
         <p class="text-center text-gray-500 text-xs mt-4">
             &copy; 2025 School Portal
