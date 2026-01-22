@@ -1,5 +1,7 @@
-<x-layout title="年間スケジュール">
-    <h2 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-yellow-500 pl-4">年間スケジュール</h2>
+﻿<x-layout title="年間スケジュール" video="スケジュール.mp4">
+    <div class="inline-block bg-white/75 backdrop-blur-sm px-4 py-3 rounded-xl shadow-md mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-yellow-500 pl-4">年間スケジュール</h2>
+    </div>
 
     <div class="bg-white rounded-xl shadow-sm overflow-hidden max-w-4xl mx-auto">
         @if($schedules->count() > 0)
@@ -30,7 +32,9 @@
     </div>
 
     <div class="mt-10 max-w-4xl mx-auto">
-        <div id="calendar"></div>
+        <div class="bg-white/75 backdrop-blur-sm rounded-xl shadow-md p-4">
+            <div id="calendar"></div>
+        </div>
     </div>
 
     @section('scripts')

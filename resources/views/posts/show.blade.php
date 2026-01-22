@@ -1,4 +1,4 @@
-<x-layout title="{{ $post->title }}">
+﻿<x-layout title="{{ $post->title }}" video="掲示板.mp4">
     <div class="max-w-4xl mx-auto">
         <div class="mb-6">
             <a href="{{ route('posts.index') }}" class="text-gray-500 hover:text-blue-600 flex items-center transition">

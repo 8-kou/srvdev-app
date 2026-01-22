@@ -1,12 +1,14 @@
-<x-layout title="ホーム">
+﻿<x-layout title="ホーム" video="ホーム.mp4">
     <div class="text-center mb-12">
-        <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl mb-4">
-            Welcome to Campus Portal
-        </h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            学科のみんなのための情報共有サイトです。<br>
-            お知らせの確認や、困ったときの連絡に使ってください。
-        </p>
+        <div class="inline-block bg-white/75 backdrop-blur-sm px-6 py-5 rounded-xl shadow-md">
+            <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl mb-4">
+                Welcome to Campus Portal
+            </h1>
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                学科のみんなのための情報共有サイトです。<br>
+                お知らせの確認や、困ったときの連絡に使ってください。
+            </p>
+        </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">

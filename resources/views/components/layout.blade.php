@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -6,9 +6,15 @@
     <title>{{ $title ?? '校内ポータル' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+<body class="app-video-bg text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+    <div class="bg-video-layer" aria-hidden="true">
+        <video class="bg-video" autoplay muted loop playsinline>
+            <source src="/videos/{{ $video ?? 'トップページ.mp4' }}" type="video/mp4">
+        </video>
+        <div class="bg-video-overlay"></div>
+    </div>
 
-    <header class="bg-blue-600 text-white shadow-md sticky top-0 z-50">
+    <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 right-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0">
@@ -27,7 +33,7 @@
         </div>
     </header>
 
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8 w-full">
         {{ $slot }}
     </main>
 

@@ -1,5 +1,7 @@
-<x-layout title="先生紹介">
-    <h2 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-green-500 pl-4">先生紹介</h2>
+﻿<x-layout title="先生紹介">
+    <div class="inline-block bg-white/75 backdrop-blur-sm px-4 py-3 rounded-xl shadow-md mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-green-500 pl-4">先生紹介</h2>
+    </div>
 
     <div id="teacher-overlay" class="hidden fixed inset-0 bg-black/30 z-20"></div>
 

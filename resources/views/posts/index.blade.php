@@ -1,6 +1,8 @@
-<x-layout title="掲示板">
-    <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-800">📋 掲示板</h2>
+﻿<x-layout title="掲示板" video="掲示板.mp4">
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
+        <div class="inline-block bg-white/75 backdrop-blur-sm px-4 py-3 rounded-xl shadow-md">
+            <h2 class="text-2xl font-bold text-gray-800">📋 掲示板</h2>
+        </div>
         <a href="{{ route('posts.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition transform hover:scale-105 flex items-center">
             <span class="text-xl mr-1">+</span> 投稿する
         </a>
@@ -23,15 +25,15 @@
                         {{ $post->category }}
                     </span>
                 </div>
-                
+
                 @if($post->title)
                     <h3 class="text-lg font-bold text-gray-800 mb-2">
                         <a href="{{ route('posts.show', $post->id) }}" class="hover:text-blue-600 transition">{{ $post->title }}</a>
                     </h3>
                 @endif
-                
+
                 <p class="text-gray-700 leading-relaxed whitespace-pre-wrap">{{ $post->content }}</p>
-                
+
                 <div class="mt-4 pt-4 border-t border-gray-50 flex justify-end">
                      <a href="{{ route('posts.show', $post->id) }}" class="text-sm text-gray-500 hover:text-blue-600">詳細を見る</a>
                 </div>
