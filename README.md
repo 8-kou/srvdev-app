@@ -12,9 +12,9 @@
 - 管理者ページ（ログイン・先生/投稿/スケジュール管理）
 
 ## 技術スタック
-- Laravel 11.x / PHP 8.3
+- Laravel 11.47.0 / PHP 8.4
 - MySQL
-- Docker / Docker Compose（Laravel Sail想定）
+- Docker / Docker Compose（Laravel Sail）
 - Apache
 - Tailwind CSS
 
@@ -31,8 +31,7 @@ npm install
 
 2) 環境設定
 ```
-cp .env.example .env
-php artisan key:generate
+sail artisan key:generate
 ```
 
 3) コンテナ起動
@@ -42,22 +41,18 @@ docker compose up -d --build
 
 4) DB初期化
 ```
-php artisan migrate
+sail artisan migrate
 ```
 
 5) 画像ストレージリンク（先生紹介画像用）
 ```
-php artisan storage:link
+sail artisan storage:link
 ```
 
 6) フロントビルド
 ```
-npm run dev
+sail npm run dev
 ```
-
-## 管理者ログイン
-- URL: `/admin`
-- 初期アカウントは登録画面から作成できます。
 
 ## ページ一覧
 - `/` トップ
@@ -65,7 +60,6 @@ npm run dev
 - `/teachers` 先生紹介
 - `/schedules` 年間スケジュール
 - `/posts` 掲示板
-- `/admin` 管理者
 
 ## 背景動画
 各ページごとに `public/videos/` 配下の動画を使用します。
@@ -84,10 +78,6 @@ npm run dev
 
 ### schedules
 - title, event_date, description
-
-## よくある問題
-- 画像が表示されない: `php artisan storage:link` を実行
-- `.env` が CRLF: `sed -i 's/\r$//' .env`
 
 ## ディレクトリ（主要）
 ```
