@@ -49,6 +49,14 @@
                     @enderror
                 </div>
 
+                <div class="mb-4">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">テーマ色（ヘッダー・担当色）</label>
+                    <input type="color" name="header_color" value="{{ old('header_color', '#34d399') }}" class="w-24 h-10 border rounded">
+                    @error('header_color')
+                        <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <div class="mb-6">
                     <label class="block text-sm font-bold text-gray-700 mb-2">画像</label>
                     <input type="file" name="image" accept="image/*" class="w-full border rounded px-3 py-2 bg-white">

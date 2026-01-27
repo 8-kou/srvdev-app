@@ -1,4 +1,4 @@
-﻿<x-layout title="年間スケジュール" video="スケジュール.mp4">
+﻿<x-layout title="年間スケジュール" video="schedules.mp4">
     <div class="inline-block bg-white/75 backdrop-blur-sm px-4 py-3 rounded-xl shadow-md mb-6">
         <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-yellow-500 pl-4">年間スケジュール</h2>
     </div>

@@ -1,4 +1,4 @@
-﻿<x-layout title="校舎案内図">
+﻿<x-layout title="校舎案内図" video="map.mp4">
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
         <div class="inline-block bg-white/75 backdrop-blur-sm px-4 py-3 rounded-xl shadow-md">
             <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-red-500 pl-4">校舎案内図</h2>

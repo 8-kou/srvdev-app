@@ -20,5 +20,6 @@ class Teacher extends Model
         'image_path',
         'message',
         'sort_order',
+        'header_color',
     ];
 }

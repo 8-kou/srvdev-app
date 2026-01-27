@@ -30,6 +30,7 @@ class TeacherController extends Controller
             'subject' => 'required|max:50',
             'message' => 'nullable|max:1000',
             'sort_order' => 'nullable|integer',
+            'header_color' => ['nullable', 'regex:/^#[0-9A-Fa-f]{6}$/'],
             'image' => 'nullable|image|max:2048',
         ]);
 
@@ -54,6 +55,7 @@ class TeacherController extends Controller
             'subject' => 'required|max:50',
             'message' => 'nullable|max:1000',
             'sort_order' => 'nullable|integer',
+            'header_color' => ['nullable', 'regex:/^#[0-9A-Fa-f]{6}$/'],
             'image' => 'nullable|image|max:2048',
         ]);
 

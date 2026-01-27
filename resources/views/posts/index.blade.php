@@ -1,4 +1,4 @@
-﻿<x-layout title="掲示板" video="掲示板.mp4">
+﻿<x-layout title="掲示板" video="posts.mp4">
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
         <div class="inline-block bg-white/75 backdrop-blur-sm px-4 py-3 rounded-xl shadow-md">
             <h2 class="text-2xl font-bold text-gray-800">📋 掲示板</h2>

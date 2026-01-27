@@ -1,4 +1,4 @@
-﻿<x-layout title="予定の詳細" video="スケジュール.mp4">
+﻿<x-layout title="予定の詳細" video="schedules.mp4">
     <h2 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-blue-500 pl-4">
         予定の詳細
     </h2>

@@ -8,13 +8,13 @@
 </head>
 <body class="app-video-bg text-gray-800 font-sans antialiased flex flex-col min-h-screen">
     <div class="bg-video-layer" aria-hidden="true">
-        <video class="bg-video" autoplay muted loop playsinline>
-            <source src="/videos/{{ $video ?? 'トップページ.mp4' }}" type="video/mp4">
+        <video class="bg-video" autoplay muted loop playsinline preload="auto">
+            <source src="/videos/{{ $video ?? 'home.mp4' }}" type="video/mp4">
         </video>
         <div class="bg-video-overlay"></div>
     </div>
 
-    <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 right-0 z-50">
+    <header class="bg-[#111827] text-white shadow-md fixed top-0 left-0 right-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0">
@@ -23,11 +23,11 @@
                     </a>
                 </div>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="{{ route('home') }}" class="hover:text-blue-200 transition font-medium">ホーム</a>
-                    <a href="{{ route('posts.index') }}" class="hover:text-blue-200 transition font-medium">掲示板</a>
-                    <a href="{{ route('teachers.index') }}" class="hover:text-blue-200 transition font-medium">先生紹介</a>
-                    <a href="{{ route('schedules.index') }}" class="hover:text-blue-200 transition font-medium">スケジュール</a>
-                    <a href="{{ route('map') }}" class="hover:text-blue-200 transition font-medium">校内地図</a>
+                    <a href="{{ route('home') }}" class="hover:text-gray-200 transition font-medium">ホーム</a>
+                    <a href="{{ route('posts.index') }}" class="hover:text-gray-200 transition font-medium">掲示板</a>
+                    <a href="{{ route('teachers.index') }}" class="hover:text-gray-200 transition font-medium">先生紹介</a>
+                    <a href="{{ route('schedules.index') }}" class="hover:text-gray-200 transition font-medium">スケジュール</a>
+                    <a href="{{ route('map') }}" class="hover:text-gray-200 transition font-medium">校内地図</a>
                 </nav>
             </div>
         </div>
@@ -39,7 +39,7 @@
 
     @yield('scripts')
 
-    <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm mt-auto">
+    <footer class="bg-[#0b1220] text-gray-400 py-6 text-center text-sm mt-auto">
         &copy; {{ date('Y') }} School Portal Project. All rights reserved.
     </footer>
 

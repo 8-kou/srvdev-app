@@ -1,4 +1,4 @@
-﻿<x-layout title="ホーム" video="ホーム.mp4">
+﻿<x-layout title="ホーム" video="home.mp4">
     <div class="text-center mb-12">
         <div class="inline-block bg-white/75 backdrop-blur-sm px-6 py-5 rounded-xl shadow-md">
             <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl mb-4">
