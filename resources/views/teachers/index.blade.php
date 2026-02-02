@@ -13,7 +13,7 @@
                     <div class="-mt-12 flex justify-center">
                         <div class="w-32 h-32 bg-white rounded-full border-4 border-white flex items-center justify-center overflow-hidden shadow-md">
                             @if($teacher->image_path)
-                                <img src="{{ asset('storage/' . $teacher->image_path) }}" class="w-full h-full object-cover" alt="{{ $teacher->name }}">
+                                <img src="{{ asset('storage/' . $teacher->image_path) }}" class="w-full h-full object-cover rounded-full" alt="{{ $teacher->name }}">
                             @else
                                 <span class="text-4xl">👨‍🏫</span>
                             @endif
