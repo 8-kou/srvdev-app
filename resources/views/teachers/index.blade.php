@@ -10,7 +10,7 @@
             <div data-teacher-card class="teacher-card bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition group cursor-pointer">
                 <div class="h-24" style="background-color: {{ $teacher->header_color ?? '#34d399' }};"></div>
                 <div class="px-6 relative">
-                    <div class="w-32 h-32 bg-white rounded-full border-4 border-white absolute -top-14 flex items-center justify-center overflow-hidden shadow-md">
+                    <div class="w-28 h-28 bg-white rounded-full border-4 border-white absolute -top-12 flex items-center justify-center overflow-hidden shadow-md">
                         @if($teacher->image_path)
                             <img src="{{ asset('storage/' . $teacher->image_path) }}" class="w-full h-full object-cover" alt="{{ $teacher->name }}">
                         @else
