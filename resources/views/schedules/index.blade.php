@@ -3,7 +3,13 @@
         <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-yellow-500 pl-4">年間スケジュール</h2>
     </div>
 
-    <div class="bg-white rounded-xl shadow-sm overflow-hidden max-w-4xl mx-auto">
+    <div class="mt-10 max-w-4xl mx-auto">
+        <div class="bg-white/75 backdrop-blur-sm rounded-xl shadow-md p-4">
+            <div id="calendar"></div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm overflow-hidden max-w-4xl mx-auto mt-10">
         @if($schedules->count() > 0)
             @foreach($schedules as $schedule)
                 <a href="{{ route('schedules.show', $schedule->id) }}" class="block">
@@ -29,12 +35,6 @@
                 まだ予定が登録されていません。
             </div>
         @endif
-    </div>
-
-    <div class="mt-10 max-w-4xl mx-auto">
-        <div class="bg-white/75 backdrop-blur-sm rounded-xl shadow-md p-4">
-            <div id="calendar"></div>
-        </div>
     </div>
 
     @section('scripts')

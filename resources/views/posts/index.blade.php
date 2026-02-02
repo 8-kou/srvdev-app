@@ -1,11 +1,23 @@
 ﻿<x-layout title="掲示板" video="posts.mp4">
-    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
         <div class="inline-block bg-white/75 backdrop-blur-sm px-4 py-3 rounded-xl shadow-md">
             <h2 class="text-2xl font-bold text-gray-800">📋 掲示板</h2>
         </div>
-        <a href="{{ route('posts.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition transform hover:scale-105 flex items-center">
-            <span class="text-xl mr-1">+</span> 投稿する
-        </a>
+        <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
+            <form method="GET" action="{{ route('posts.index') }}" class="flex items-center gap-2">
+                <label for="sort" class="text-sm text-gray-600">並び替え</label>
+                <select id="sort" name="sort" class="border border-gray-300 rounded-lg px-3 py-2 text-sm bg-white">
+                    <option value="new" {{ ($sort ?? 'new') === 'new' ? 'selected' : '' }}>投稿日が新しい順</option>
+                    <option value="old" {{ ($sort ?? 'new') === 'old' ? 'selected' : '' }}>投稿日が古い順</option>
+                    <option value="likes" {{ ($sort ?? 'new') === 'likes' ? 'selected' : '' }}>いいね順</option>
+                    <option value="replies" {{ ($sort ?? 'new') === 'replies' ? 'selected' : '' }}>返信が多い順</option>
+                </select>
+                <button type="submit" class="bg-gray-700 text-white text-sm px-3 py-2 rounded-lg hover:bg-gray-800">適用</button>
+            </form>
+            <a href="{{ route('posts.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition transform hover:scale-105 flex items-center justify-center">
+                <span class="text-xl mr-1">+</span> 投稿する
+            </a>
+        </div>
     </div>
 
     <div class="space-y-6">

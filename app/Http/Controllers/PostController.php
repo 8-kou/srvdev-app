@@ -8,13 +8,33 @@ use App\Models\Like;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::where('is_published', true)
-                     ->whereNull('parent_id')
-                     ->latest()
-                     ->paginate(10);
-        return view('posts.index', compact('posts'));
+        $sort = $request->query('sort', 'new');
+
+        $postsQuery = Post::where('is_published', true)
+            ->whereNull('parent_id')
+            ->withCount(['likes', 'replies']);
+
+        switch ($sort) {
+            case 'old':
+                $postsQuery->orderBy('created_at', 'asc');
+                break;
+            case 'likes':
+                $postsQuery->orderBy('likes_count', 'desc')->orderBy('created_at', 'desc');
+                break;
+            case 'replies':
+                $postsQuery->orderBy('replies_count', 'desc')->orderBy('created_at', 'desc');
+                break;
+            case 'new':
+            default:
+                $postsQuery->orderBy('created_at', 'desc');
+                break;
+        }
+
+        $posts = $postsQuery->paginate(10)->withQueryString();
+
+        return view('posts.index', compact('posts', 'sort'));
     }
 
     public function create()

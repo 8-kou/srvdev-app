@@ -40,7 +40,10 @@
     @yield('scripts')
 
     <footer class="bg-[#0b1220] text-gray-400 py-6 text-center text-sm mt-auto">
-        &copy; {{ date('Y') }} School Portal Project. All rights reserved.
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <span>&copy; {{ date('Y') }} School Portal Project. All rights reserved.</span>
+            <a href="{{ route('admin.login') }}" class="text-gray-300 hover:text-white underline">管理者ページ</a>
+        </div>
     </footer>
 
 </body>
