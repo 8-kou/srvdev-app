@@ -16,7 +16,7 @@
                         <span class="text-3xl">👨‍🏫</span>
                     @endif
                 </div>
-                <div class="px-6 pb-5 pt-4 pl-28 text-left min-h-[140px]">
+                <div class="pr-6 pl-28 pt-6 pb-5 text-left min-h-[140px]">
                     <h3 class="text-xl font-bold text-gray-900 mb-1">{{ $teacher->name }}</h3>
                     <p class="text-sm font-bold mb-4 uppercase tracking-wide" style="color: {{ $teacher->header_color ?? '#34d399' }};">{{ $teacher->subject }}</p>
                     <div class="h-px w-16 bg-gray-200 mb-3"></div>
